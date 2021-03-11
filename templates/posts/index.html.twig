@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Crear Post{% endblock %}
+
+{% block body %}
+{{parent()}}
+
+<br>
+    <div class="container">
+    <div class=" justify-content-center align-items-center">
+        <div class="card border-primary">
+            <div class="card-header text-primary text-center"><strong>Crear Post</strong></div>
+                <div class="card-body text-primary">
+                {{form(form)}}
+                </div>
+            </div>
+        </div>
+        </div>
+
+{% endblock %}

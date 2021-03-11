@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Ingresar{% endblock %}
+
+        {% block stylesheets %}
+        {{parent()}}
+        {% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar10">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('blogger')}}">Blogger</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('comentarios') }}">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin:250px">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div>
+                <b class="text-primary" style="font-size:8.0em">Blogger</b>
+                <br>
+                <a class="btn btn-outline-primary" href="{{path('registro')}}">Registro</a>
+                <a class="btn btn-outline-primary" href="{{path('app_login')}}">Iniciar Sesión</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

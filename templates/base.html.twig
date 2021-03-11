@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Blogger{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+         <link rel="stylesheet" href="{{asset('css/style.css')}}"> 
+            <link rel="stylesheet" href="{{asset('css/all.css')}}">
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/all.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{path('dashboard')}}">Blogger</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path('registrar-posts')}}">Crear Post</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('MisPosts') }}">Mis Post</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+        <a class="nav-link" href="{{ path('app_logout') }}">Cerrar Sesión</a>
+    </div>
+  </div>
+</nav>
+        {% endblock %}
+    </body>
+</html>

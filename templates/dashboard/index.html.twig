@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{parent()}} - Posts
+{% endblock %}
+
+{% block body %}
+{{parent()}} 
+
+<br>
+<div class="container">
+{% for post in pagination %}
+
+<div class="card mb-3 cursor" onclick="window.location.href='{{ path('Verpost',{id:post.id}) }}'">
+  <img class="align-self-center text-center" src="{{asset('uploads/photos/'~post.foto)}}" alt="Card image cap" width="200" height="200">
+  <br>
+  <div class="card-body">
+    <h5 class="card-title">{{post.titulo}}</h5>
+    <div> <i class="fa fa-user"></i><strong> {{post.nombre}}</strong></div>
+    <div><i class="far fa-clock"></i> <strong>Fecha publicación {{post.fecha_publicacion | date }}</strong></div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+    <div class="d-flex justify-content-center">
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+
+
+{% endblock %}

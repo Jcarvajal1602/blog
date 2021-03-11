@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Mis Post{% endblock %}
+
+{% block body %}
+{{parent()}}
+
+  {% if posts == false %}
+  <div class="alert alert-success">
+  Blogger te invita a crear tu primer post
+  </div>
+  {% endif %}
+
+  {% for message in app.flashes('exito') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+  {% endfor %}
+
+
+ 
+{% for post in posts %}
+<br>
+<div class="container">
+<div class="card mb-3 cursor" onclick="window.location.href='{{ path('Verpost',{id:post.id}) }}'">
+  <img class="align-self-center text-center" src="{{asset('uploads/photos/'~post.foto)}}" alt="Card image cap" width="200" height="200">
+  <br>
+  <div class="card-body">
+   <div class="card-body">
+    <h5 class="card-title">{{post.titulo}}</h5>
+    <div> <i class="fa fa-user"></i><strong> {{post.user.nombre}}</strong></div>
+    <div><i class="far fa-clock"></i> <strong>Fecha publicación {{post.fechapublicacion | date }}</strong></div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+{% endfor %}
+</div>
+
+ 
+
+
+
+
+
+
+    
+{% endblock %}
+

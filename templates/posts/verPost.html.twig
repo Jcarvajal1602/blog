@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Ver Post{% endblock %}
+
+{% block body %}
+{{parent()}}
+<br>
+<div class="container bg-white rounded my-3 p-4">
+        <div class="d-flex bd-highlight">
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <h3>{{post.titulo}}</h3>
+                <div> <i class="fa fa-user"></i><strong> Creado por {{post.user.nombre}}</strong></div>
+                <div ><i class="far fa-clock"></i> <strong>Fecha publicación {{ post.fechapublicacion | date }}</strong></div>
+            </div>
+            <div class="p-2 bd-highlight">
+                <div class="align-self-center">
+                    <img class="rounded " src="{{asset('uploads/photos/'~post.foto)}}" width="150px">
+                </div>
+            </div>
+        </div>
+ 
+        <div class="text-justify ">
+            <p >{{post.contenido}} </p>
+        </div>
+{% if post.user.id == user.id %}
+        <a class="btn btn-outline-primary" href="{{path('modificando',{id:post.id})}}">Editar</a>
+        <a class="btn btn-outline-danger" href="{{path('eliminar',{id:post.id})}}">Eliminar</a>
+        
+
+{% endif %}
+    </div>
+
+
+{% endblock %}
+
+
